@@ -4,7 +4,7 @@
 # your local needs and should not be part of the upstream tasks.sh. For example:
 
 ## Cross-compile/debug/emulate for arm64
-# TARGET_ARCH=arm64
+TARGET_ARCH=arm64
 
 ## Change PATH to use a different QEMU binary
 # export PATH=$HOME/qemu/bin/:$PATH
@@ -23,10 +23,10 @@
 # fi
 
 ## Make the build verbose
-# SILENT_BUILD_FLAG=""
+SILENT_BUILD_FLAG=""
 
 ## Disable the build spinner
-# SPINNER=0
+SPINNER=0
 
 ## Don't clear the screen before each task
 # unset CLEAR
