@@ -43,3 +43,6 @@ SPINNER=0
 
 ## Fuzz as an unprivileged user
 # SYZ_MANAGER_CFG_EXTRA='"sandbox": "setuid",'
+
+## custom defconfig name
+DEFCONFIG=ccp_defconfig

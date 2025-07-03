@@ -57,6 +57,7 @@ done
 : ${WORKSPACE_DIR:=`realpath -s "${SCRIPT_DIR}/.."`}
 : ${MAKE:="make -j`nproc` LLVM=1 LLVM_IAS=1 CC='ccache clang'"}
 : ${TARGET_ARCH:="x86_64"}
+: ${DEFCONFIG:="defconfig"}
 : ${SILENT_BUILD_FLAG="-s"}
 : ${SUCCESSFUL_EXIT_COMMAND:=""}
 : ${BPF_SELFTESTS_DIR:="${WORKSPACE_DIR}/tools/testing/selftests/bpf"}
@@ -162,9 +163,7 @@ case "${COMMAND}" in
   "defconfig")
     # Only generate .config if it doesn't already exist
     if [ ! -f ${WORKSPACE_DIR}/.config ]; then
-      eval ${MAKE} ARCH=${TARGET_ARCH} defconfig kvm_guest.config
-      scripts/config --enable DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT
-      eval ${MAKE} ARCH=${TARGET_ARCH} olddefconfig
+      eval ${MAKE} ${DEFCONFIG}
     fi
     ;;
   "menuconfig")
